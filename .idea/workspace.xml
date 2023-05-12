@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="adding docs and optimizing code">
+    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="adding docs and optimizing code for transformation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/MetadataDrivenEtl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/MetadataDrivenEtl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Transformer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Transformer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAddition.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionCurrentTimestamp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditorCurrentTimestamp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionType.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Loader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Loader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/writer/JsonWriter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/writer/JsonWriter.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,12 +137,20 @@
       <option name="project" value="LOCAL" />
       <updated>1683852912593</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adding docs and optimizing code for transformation">
+      <created>1683855132199</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683855132199</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding docs and optimizing code" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding docs and optimizing code" />
+    <MESSAGE value="adding docs and optimizing code for transformation" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding docs and optimizing code for transformation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

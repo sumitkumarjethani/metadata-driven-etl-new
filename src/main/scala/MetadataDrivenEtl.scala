@@ -36,11 +36,11 @@ object MetadataDrivenEtl {
       val transformer = new Transformer()
       val transformedMap = transformer.transform(dataFlow.transformations, sourcesMapValidated)
 
-      logger.info("Escribiendo los ficheros necesarios...")
+      logger.info("Escribiendo los datos transformados en los destinos...")
       val loader = new Loader()
       loader.load(dataFlow.sinks, transformedMap)
 
-      logger.info("ETL Terminada...")
+      logger.info("ETL terminada...")
       spark.stop()
     } catch {
       case e: Exception => logger.error("Ha ocurrido un error: " + e.getMessage()); sys.exit()
