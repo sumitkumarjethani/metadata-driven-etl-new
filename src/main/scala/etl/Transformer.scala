@@ -2,8 +2,7 @@ package etl
 import metadata.components.Transformation
 import metadata.components.types.TransformationType
 import org.apache.spark.sql.DataFrame
-import transformer.field.additor.{FieldAdditionCurrentTimestamp, FieldAdditionType}
-
+import transformer.field.additor.{FieldAdditorCurrentTimestamp, FieldAdditionType}
 import scala.collection.mutable.{Map => MutableMap}
 import scala.collection.immutable.{Map => ImmutableMap}
 
@@ -11,6 +10,14 @@ class Transformer () {
   def transform(transformations: List[Transformation],
                 sourcesMap: MutableMap[String, MutableMap[String, DataFrame]]
   ): MutableMap[String, MutableMap[String, DataFrame]] = {
+    /**
+     * Aplica transformaciones a un conjunto de DataFrames.
+     *
+     * @param transformations lista de transformaciones a aplicar.
+     * @param sourcesMap      mapa de DataFrames sobre los que aplicar las transformaciones.
+     * @return un mapa de DataFrames con las transformaciones aplicadas.
+     * @throws Exception si ocurre un error al aplicar las transformaciones.
+     */
 
     var newSourcesMap = sourcesMap.clone()
 
@@ -24,36 +31,52 @@ class Transformer () {
         case TransformationType.ADD_FIELDS => {
           newSourcesMap = addFieldsTransformation(transformation, sourcesMap)
         }
-        case _ => throw new Exception("Tipo de transformación desconocida")
+        case _ => throw new Exception(s"Error tipo de transformación ${transformation.`type`} no soportada")
       }
     }
     newSourcesMap
   }
 
-  def addFieldsTransformation(transformation: Transformation,
+  private def addFieldsTransformation(transformation: Transformation,
                               sourcesMap: MutableMap[String, MutableMap[String, DataFrame]]
   ): MutableMap[String, MutableMap[String, DataFrame]] = {
+    /**
+     * Función privada que aplica la transformación "addFields" a los dataframes de una fuente de datos.
+     * La transformación "addFields" añade campos a los dataframes.
+     *
+     * @param transformation objeto de tipo Transformation que representa la transformación "addFields".
+     * @param sourcesMap     mapa de fuentes de datos donde se encuentran los dataframes a los que se les aplica la transformación.
+     * @return mapa de fuentes de datos con los dataframes transformados.
+     * @throws Exception si no se especifica alguno de los parámetros necesarios para la transformación o si se intenta
+     *                   aplicar una transformación no soportada.
+     */
 
-    if(!transformation.params.contains("input") || !transformation.params.contains("addFields")
-          || !sourcesMap.contains(transformation.params("input").asInstanceOf[String])
-    ) throw new Exception("Error en la transformacion")
+    if (!transformation.params.contains("input"))
+      throw new Exception(s"Parametro input no especificado en la transformación: ${transformation.name}")
+    if (!transformation.params.contains("addFields"))
+      throw new Exception(s"Parametro addFields no especificado en la transformación: ${transformation.name}")
+    if (!sourcesMap.contains(transformation.params("input").asInstanceOf[String]))
+      throw new Exception(s"Input: ${transformation.params("input").asInstanceOf[String]} de la transformación: ${transformation.name} no existe")
 
-    val params = transformation.params
-    val input = params("input").asInstanceOf[String]
-    val addFieldsMapList = params("addFields").asInstanceOf[List[ImmutableMap[String, String]]]
+    val input = transformation.params("input").asInstanceOf[String]
+    val addFieldsMapList = transformation.params("addFields").asInstanceOf[List[ImmutableMap[String, String]]]
     val internalMap = sourcesMap(input)
 
     for ((path, df) <- internalMap) {
       var updatedDf = df
       for (addFieldMap <- addFieldsMapList) {
-        if(!addFieldMap.contains("name") || !addFieldMap.contains("function")) throw new Exception("Error en la transformación")
+        if(!addFieldMap.contains("name"))
+          throw new Exception("Nombre de campo no especificado en alguna transformación")
+        if(!addFieldMap.contains("function"))
+          throw new Exception("Nombre de funciín no especificado en alguna transformación")
+
         val fieldName = addFieldMap("name")
         val functionName = addFieldMap("function")
         FieldAdditionType.fromString(functionName) match {
           case FieldAdditionType.CURRENT_TIMESTAMP => {
-            updatedDf = new FieldAdditionCurrentTimestamp(fieldName).add(updatedDf)
+            updatedDf = new FieldAdditorCurrentTimestamp(fieldName).add(updatedDf)
           }
-          case _ => throw new Exception("Error en la transformación")
+          case _ => throw new Exception(s"Error tipo de transformación: ${FieldAdditionType.fromString(functionName)} no soportada")
         }
       }
       internalMap.update(path, updatedDf)

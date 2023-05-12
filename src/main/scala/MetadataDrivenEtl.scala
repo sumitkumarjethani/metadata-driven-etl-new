@@ -32,7 +32,7 @@ object MetadataDrivenEtl {
       val validator = new Validator()
       val sourcesMapValidated = validator.validate(dataFlow.transformations, sourcesMap)
 
-      logger.info("Realizando las transformaciones necesarias...")
+      logger.info("Realizando las transformaciones sobre los datos extraidos...")
       val transformer = new Transformer()
       val transformedMap = transformer.transform(dataFlow.transformations, sourcesMapValidated)
 

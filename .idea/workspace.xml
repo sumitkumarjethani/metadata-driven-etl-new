@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
+    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="adding docs and optimizing code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/MetadataDrivenEtl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/MetadataDrivenEtl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Extractor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Extractor.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Transformer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Transformer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Validator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Validator.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/field/additor/FieldAddition.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAddition.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/field/additor/FieldAdditionCurrentTimestamp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionCurrentTimestamp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/field/additor/FieldAdditionType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionType.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/field/validator/FieldValidation.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidation.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/field/validator/FieldValidationType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidationType.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/field/validator/FieldValidator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidator.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/field/validator/NotNullFieldValidator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/NotNullFieldValidator.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAddition.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionCurrentTimestamp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditorCurrentTimestamp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionType.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +132,19 @@
       <option name="presentableId" value="Default" />
       <updated>1683649070262</updated>
     </task>
+    <task id="LOCAL-00001" summary="adding docs and optimizing code">
+      <created>1683852912593</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683852912593</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding docs and optimizing code" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding docs and optimizing code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
