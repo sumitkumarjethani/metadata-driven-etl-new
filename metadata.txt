@@ -1,0 +1,84 @@
+{
+  "dataflows": [
+    {
+      "name": "prueba-acceso",
+      "sources": [
+	  {
+          "name": "person_copy_inputs",
+          "path": "C:/Users/sumit/OneDrive/Escritorio/data/input/person_copy/copy.txt",
+          "format": "JSON"
+        },
+        {
+          "name": "person_inputs",
+          "path": "C:/Users/sumit/OneDrive/Escritorio/data/input/person",
+          "format": "JSON"
+        }
+      ],
+      "transformations": [
+        {
+          "name": "validation",
+          "type": "VALIDATE_FIELDS",
+          "params": {
+            "input" : "person_inputs",
+            "validations": [
+              {
+                "field": "office",
+                "validations": ["NOT_NULL"]
+              },
+              {
+                "field": "age",
+                "validations": ["NOT_NULL"]
+              }
+            ]
+          }
+        },
+        {
+          "name": "ok_with_date",
+          "type": "ADD_FIELDS",
+          "params": {
+            "input": "person_inputs",
+            "addFields": [
+              {
+                "name": "dt",
+                "function": "CURRENT_TIMESTAMP"
+              }
+            ]
+          }
+        }
+      ],
+      "sinks": [
+        {
+          "input": "person_inputs",
+	    "status": "OK",
+          "name": "raw-ok",
+          "paths": [
+            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person"
+          ],
+          "format": "JSON",
+          "saveMode": "OVERWRITE"
+        },
+	  {
+          "input": "person_inputs",
+	    "status": "KO",
+          "name": "raw-ko",
+          "paths": [
+            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person",
+		"C:/Users/sumit/OneDrive/Escritorio"
+          ],
+          "format": "JSON",
+          "saveMode": "OVERWRITE"
+        },
+        {
+          "input": "person_copy_inputs",
+	    "status": "OK",
+          "name": "raw-ok",
+          "paths": [
+            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person_copy"
+          ],
+          "format": "JSON",
+          "saveMode": "OVERWRITE"
+        }
+      ]
+    }
+  ]
+}
