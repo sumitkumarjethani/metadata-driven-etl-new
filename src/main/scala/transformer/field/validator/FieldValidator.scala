@@ -1,7 +1,7 @@
-package field.validator
+package transformer.field.validator
 
 import org.apache.spark.sql.DataFrame
 
-abstract class FieldValidator() {
+trait FieldValidator {
   def validate(fieldName: String, df: DataFrame): DataFrame
 }

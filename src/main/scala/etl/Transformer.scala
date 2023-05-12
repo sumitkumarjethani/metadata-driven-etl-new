@@ -1,8 +1,8 @@
 package etl
-import field.additor.{FieldAdditionCurrentTimestamp, FieldAdditionType}
 import metadata.components.Transformation
 import metadata.components.types.TransformationType
 import org.apache.spark.sql.DataFrame
+import transformer.field.additor.{FieldAdditionCurrentTimestamp, FieldAdditionType}
 
 import scala.collection.mutable.{Map => MutableMap}
 import scala.collection.immutable.{Map => ImmutableMap}

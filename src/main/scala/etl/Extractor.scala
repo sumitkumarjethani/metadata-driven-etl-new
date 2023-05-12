@@ -2,42 +2,41 @@ package etl
 import metadata.components.Source
 import metadata.components.types.FormatType
 import org.apache.spark.sql.{DataFrame, SparkSession}
-import scala.collection.mutable.Map
+import scala.collection.mutable.{Map => MutableMap}
 import utils.Utils
 
 class Extractor (spark: SparkSession) {
 
-  def load(sources: List[Source]): Map[String, Map[String, DataFrame]] = {
-    if (sources.length == 0) throw new Exception("No existen origenes definidos en el fichero de metadatos")
+  def load(sources: List[Source]): MutableMap[String, MutableMap[String, DataFrame]] = {
+    if (sources.length == 0) throw new Exception("No sources definidos para iniciar la extracción")
 
-    val sourcesMap = Map[String, Map[String, DataFrame]]()
+    val sourcesMap = MutableMap[String, MutableMap[String, DataFrame]]()
 
     sources.map { source =>
       if (!Utils.pathExists(source.path)) {
-        throw new Exception(s"La ruta ${source.path} del origen: ${source.name} no existe")
+        throw new Exception(s"La ruta ${source.path} del source: ${source.name} no existe")
       }
 
       if (!FormatType.values.toList.contains(source.format)) {
         throw new IllegalArgumentException(
-          s"Formato del fichero ${source.format} no soportado para el origen ${source.name}"
+          s"Formato del fichero ${source.format} no soportado para el source ${source.name}"
         )
       }
 
       val sourceType = if (Utils.isDirectory(source.path)) "directory" else "file"
 
-      val sourceMap: Map[String, DataFrame] = source.format match {
+      val sourceMap: MutableMap[String, DataFrame] = source.format match {
         case FormatType.JSON =>
           sourceType match {
-            case "file" => Map(source.path -> spark.read.json(source.path))
+            case "file" => MutableMap(source.path -> spark.read.json(source.path))
             case "directory" => {
-              val directoryMap = Map[String, DataFrame]()
+              val directoryMap = MutableMap[String, DataFrame]()
               for (file <- Utils.getDirectoryFileNames(source.path)) {
                 val df = spark.read.json(source.path + '/' + file)
                 directoryMap += ((source.path + '/' + file) -> df)
               }
               directoryMap
             }
-            case _ => throw new Exception("Algo salió mal")
           }
       }
       sourcesMap += (source.name -> sourceMap)

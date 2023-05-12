@@ -1,4 +1,5 @@
-package field.additor
+package transformer.field.additor
+
 import org.apache.spark.sql.DataFrame
 
 trait FieldAddition {
