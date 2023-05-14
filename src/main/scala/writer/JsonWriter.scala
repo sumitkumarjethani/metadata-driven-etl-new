@@ -17,7 +17,8 @@ class JsonWriter extends Writer {
     if (!SaveModeType.values.exists(_ == saveModeType)) throw new Exception("Modo de almacenado no soportado")
     if(!pathExists(path)) throw new Exception(s"Ruta de guardado: ${path} no existe")
     if(!isDirectory(path)) throw new Exception(s"Ruta de guardado: ${path} no es un directorio")
-    //df.write.mode(saveModeType.toString.toLowerCase()).json("file:///" + path + ".json")
-    println(df.show())
+    df.coalesce(1)
+      .write.mode(saveModeType.toString.toLowerCase())
+      .json("file:///" + path + "/" + fileName)
   }
 }

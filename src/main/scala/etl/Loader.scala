@@ -5,6 +5,7 @@ import metadata.components.Sink
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._
 import writer.JsonWriter
+import utils.Utils
 
 import scala.collection.mutable.{Map => MutableMap}
 
@@ -44,13 +45,13 @@ class Loader {
     sink.format match {
       case FormatType.JSON => {
         val jsonWriter = new JsonWriter()
-        for((_, df) <- dfsMap) {
+        for((path, df) <- dfsMap) {
           var okDf = df
           if (okDf.columns.contains("arraycoderrorbyfield")) okDf = df.filter(size(col("arraycoderrorbyfield")) === 0)
           for(savePath <- sink.paths) {
             jsonWriter.write(
               okDf,
-              savePath, sink.name,
+              savePath, utils.Utils.getFileNameWithoutExtensionFromPath(path),
               sink.saveMode
             )
           }
@@ -70,13 +71,13 @@ class Loader {
     sink.format match {
       case FormatType.JSON => {
         val jsonWriter = new JsonWriter()
-        for ((_, df) <- dfsMap) {
+        for ((path, df) <- dfsMap) {
           var koDf = df
           if (koDf.columns.contains("arraycoderrorbyfield")) koDf = df.filter(size(col("arraycoderrorbyfield")) > 0)
           for (savePath <- sink.paths) {
             jsonWriter.write(
               koDf,
-              savePath, sink.name,
+              savePath, Utils.getFileNameWithoutExtensionFromPath(path),
               sink.saveMode
             )
           }

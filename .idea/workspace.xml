@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="adding docs and optimizing code for loader">
+      <change beforePath="$PROJECT_DIR$/.bsp/sbt.json" beforeDir="false" afterPath="$PROJECT_DIR$/.bsp/sbt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Loader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Loader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/metadata/components/types/SaveModeType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/metadata/components/types/SaveModeType.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/utils/Utils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/utils/Utils.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/writer/JsonWriter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/writer/JsonWriter.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +81,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -92,6 +99,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/sumit/OneDrive/Escritorio/metadata-driven-etl-new",
     "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
@@ -112,7 +120,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="MetadataDrivenEtl" />
       <module name="prueba-tecnica" />
-      <option name="PROGRAM_PARAMETERS" value="C:\Users\sumit\OneDrive\Escritorio\prueba-tecnica\metadata.txt" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\sumit\OneDrive\Escritorio\metadata-driven-etl-new\metadata.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

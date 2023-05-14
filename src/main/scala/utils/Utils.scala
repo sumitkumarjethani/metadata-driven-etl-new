@@ -35,4 +35,15 @@ object Utils {
     new File(path).listFiles.filter(_.isFile).map(_.getName)
   }
 
+  def getFileNameWithoutExtensionFromPath(path: String): String = {
+    /**
+     * Devuelve el nombre de archivo sin extensión de una ruta dada.
+     *
+     * @param path La ruta del archivo.
+     * @return El nombre del archivo sin extensión.
+     */
+    val fileName = new File(path).getName
+    fileName.substring(0, fileName.lastIndexOf('.'))
+  }
+
 }

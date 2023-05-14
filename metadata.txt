@@ -52,7 +52,7 @@
 	    "status": "OK",
           "name": "raw-ok",
           "paths": [
-            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person"
+            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person/ok"
           ],
           "format": "JSON",
           "saveMode": "OVERWRITE"
@@ -62,8 +62,7 @@
 	    "status": "KO",
           "name": "raw-ko",
           "paths": [
-            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person",
-		"C:/Users/sumit/OneDrive/Escritorio"
+            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person/ko"
           ],
           "format": "JSON",
           "saveMode": "OVERWRITE"
@@ -73,7 +72,7 @@
 	    "status": "OK",
           "name": "raw-ok",
           "paths": [
-            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person_copy"
+            "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person_copy/ok"
           ],
           "format": "JSON",
           "saveMode": "OVERWRITE"
