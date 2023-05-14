@@ -47,7 +47,8 @@ class Loader {
         val jsonWriter = new JsonWriter()
         for((path, df) <- dfsMap) {
           var okDf = df
-          if (okDf.columns.contains("arraycoderrorbyfield")) okDf = df.filter(size(col("arraycoderrorbyfield")) === 0)
+          if (okDf.columns.contains("arraycoderrorbyfield"))
+            okDf = df.filter(size(col("arraycoderrorbyfield")) === 0).drop("arraycoderrorbyfield")
           for(savePath <- sink.paths) {
             jsonWriter.write(
               okDf,
