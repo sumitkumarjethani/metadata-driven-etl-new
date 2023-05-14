@@ -2,6 +2,8 @@ package etl
 import metadata.components.Source
 import metadata.components.types.FormatType
 import org.apache.spark.sql.{DataFrame, SparkSession}
+import reader.JsonReader
+
 import scala.collection.mutable.{Map => MutableMap}
 import utils.Utils
 
@@ -27,12 +29,13 @@ class Extractor (spark: SparkSession) {
 
       val sourceMap: MutableMap[String, DataFrame] = source.format match {
         case FormatType.JSON =>
+          val jsonReader = new JsonReader()
           sourceType match {
-            case "file" => MutableMap(source.path -> spark.read.json(source.path))
+            case "file" => MutableMap(source.path -> jsonReader.read(source.path, spark))
             case "directory" => {
               val directoryMap = MutableMap[String, DataFrame]()
               for (file <- Utils.getDirectoryFileNames(source.path)) {
-                val df = spark.read.json(source.path + '/' + file)
+                val df = jsonReader.read(source.path + '/' + file, spark)
                 directoryMap += ((source.path + '/' + file) -> df)
               }
               directoryMap

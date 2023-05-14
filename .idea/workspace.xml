@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="loader and writer working">
+    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="checking df has data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Loader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Loader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/writer/JsonWriter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/writer/JsonWriter.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/MetadataDrivenEtl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/MetadataDrivenEtl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Extractor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Extractor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/reader/JsonReader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/reader/JsonReader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/reader/Reader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/reader/Reader.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684086549130</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="checking df has data">
+      <created>1684087394659</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684087394659</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -166,7 +175,8 @@
     <MESSAGE value="adding docs and optimizing code for transformation" />
     <MESSAGE value="adding docs and optimizing code for loader" />
     <MESSAGE value="loader and writer working" />
-    <option name="LAST_COMMIT_MESSAGE" value="loader and writer working" />
+    <MESSAGE value="checking df has data" />
+    <option name="LAST_COMMIT_MESSAGE" value="checking df has data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

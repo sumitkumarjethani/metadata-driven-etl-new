@@ -19,7 +19,7 @@ object MetadataDrivenEtl {
 
       // Creamos el JsonReader para la lectura de los metadatos
       logger.info("Leyendo fichero de metadatos...")
-      val metadata = new JsonReader(path).readJson()
+      val metadata = new JsonReader().read(path)
 
       logger.info("Convirtiendo los metadatos a flujo de datos (DataFlow)...")
       val dataFlow = new JsonMetadataParser().parse(metadata)

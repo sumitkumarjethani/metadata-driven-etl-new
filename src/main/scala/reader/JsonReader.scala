@@ -1,18 +1,30 @@
 package reader
 
-class JsonReader(path: String) extends Reader(path) {
-  import play.api.libs.json._
+import utils.Utils
+import java.io.File
+import scala.io.Source
+import play.api.libs.json._
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
-  def readJson(): JsValue = {
-    /**
-     * Lee el contenido del fichero y lo parsea como un objeto Json.
-     *
-     * @return Objeto Json parseado.
-     * @throws Exception Si ocurre un error al parsear el fichero leído.
-     */
-    val content = read()
+class JsonReader extends Reader {
+
+  def read(path: String): JsValue = {
+    if(!Utils.pathExists(path)) throw new Exception(s"Ruta de lectura: ${path} no existe")
+    val source = Source.fromFile(new File(path))
+
     try {
-      Json.parse(content)
+      Json.parse(source.getLines().mkString("\n"))
+    } catch {
+      case _: Exception => throw new Exception("Error al parsear el fichero leido")
+    } finally {
+      source.close()
+    }
+  }
+
+  def read(path: String, spark: SparkSession): DataFrame = {
+    if (!Utils.pathExists(path)) throw new Exception(s"Ruta de lectura: ${path} no existe")
+    try {
+      spark.read.option("inferSchema", "true").json(path)
     } catch {
       case _: Exception => throw new Exception("Error al parsear el fichero leido")
     }
