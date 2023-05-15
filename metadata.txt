@@ -54,6 +54,12 @@
               {
                 "name": "dt",
                 "function": "CURRENT_TIMESTAMP"
+              },
+              {
+                "name": "name_office",
+			"fields": ["name", "office"],
+			"separator": "|",
+                "function": "CONCAT"
               }
             ]
           }

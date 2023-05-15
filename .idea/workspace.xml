@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="IsIntFieldValidator">
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidationType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidationType.scala" afterDir="false" />
+    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="FieldValidation Types">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Transformer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Transformer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionType.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684155038298</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="FieldValidation Types">
+      <created>1684155095477</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684155095477</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -188,7 +198,8 @@
     <MESSAGE value="checking df has data" />
     <MESSAGE value="making a generic reader" />
     <MESSAGE value="IsIntFieldValidator" />
-    <option name="LAST_COMMIT_MESSAGE" value="IsIntFieldValidator" />
+    <MESSAGE value="FieldValidation Types" />
+    <option name="LAST_COMMIT_MESSAGE" value="FieldValidation Types" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

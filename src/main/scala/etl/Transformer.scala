@@ -2,7 +2,7 @@ package etl
 import metadata.components.Transformation
 import metadata.components.types.TransformationType
 import org.apache.spark.sql.DataFrame
-import transformer.field.additor.{FieldAdditorCurrentTimestamp, FieldAdditionType}
+import transformer.field.additor.{FieldAdditorConcat, FieldAdditorCurrentTimestamp, FieldAdditionType}
 import scala.collection.mutable.{Map => MutableMap}
 import scala.collection.immutable.{Map => ImmutableMap}
 
@@ -59,7 +59,7 @@ class Transformer () {
       throw new Exception(s"Input: ${transformation.params("input").asInstanceOf[String]} de la transformación: ${transformation.name} no existe")
 
     val input = transformation.params("input").asInstanceOf[String]
-    val addFieldsMapList = transformation.params("addFields").asInstanceOf[List[ImmutableMap[String, String]]]
+    val addFieldsMapList = transformation.params("addFields").asInstanceOf[List[ImmutableMap[String, Any]]]
     val internalMap = sourcesMap(input)
 
     for ((path, df) <- internalMap) {
@@ -68,13 +68,24 @@ class Transformer () {
         if(!addFieldMap.contains("name"))
           throw new Exception("Nombre de campo no especificado en alguna transformación")
         if(!addFieldMap.contains("function"))
-          throw new Exception("Nombre de funciín no especificado en alguna transformación")
+          throw new Exception("Nombre de función no especificado en alguna transformación")
 
-        val fieldName = addFieldMap("name")
-        val functionName = addFieldMap("function")
+        val fieldName = addFieldMap("name").asInstanceOf[String]
+        val functionName = addFieldMap("function").asInstanceOf[String]
+
         FieldAdditionType.fromString(functionName) match {
           case FieldAdditionType.CURRENT_TIMESTAMP => {
             updatedDf = new FieldAdditorCurrentTimestamp(fieldName).add(updatedDf)
+          }
+          case FieldAdditionType.CONCAT => {
+            if (!addFieldMap.contains("fields") || addFieldMap("fields").asInstanceOf[List[String]].length == 0)
+              throw new Exception("Nombre de campos no especificados para la concatenación")
+            if (!addFieldMap.contains("separator"))
+              throw new Exception("Separador de concatenación no especificado")
+
+            val inputFields = addFieldMap("fields").asInstanceOf[List[String]]
+            val separator = addFieldMap("separator").asInstanceOf[String]
+            updatedDf = new FieldAdditorConcat(fieldName, separator, inputFields).add(updatedDf)
           }
           case _ => throw new Exception(s"Error tipo de transformación: ${FieldAdditionType.fromString(functionName)} no soportada")
         }
