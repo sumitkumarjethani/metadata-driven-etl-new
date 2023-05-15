@@ -4,24 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="FieldAdditorConcat">
+    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="Better package organization and CSVWriter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Extractor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Extractor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Loader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Loader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Transformer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Transformer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Validator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Validator.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/metadata/components/types/FormatType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/metadata/components/types/FormatType.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/metadata/parser/JsonMetadataParser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/metadata/parser/JsonMetadataParser.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditionType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/additor/field/FieldAdditionType.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/additor/field/FieldAdditor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditorConcat.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/additor/field/FieldAdditorConcat.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/additor/FieldAdditorCurrentTimestamp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/additor/field/FieldAdditorCurrentTimestamp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidation.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/validator/field/FieldValidation.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidationType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/validator/field/FieldValidationType.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/validator/field/FieldValidator.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/IsIntFieldValidator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/validator/field/IsIntFieldValidator.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/NotNullFieldValidator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/validator/field/NotNullFieldValidator.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/reader/JsonReader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/reader/JsonReader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/additor/field/FieldAdditorConcat.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/additor/field/FieldAdditorConcat.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/additor/field/FieldAdditorCurrentTimestamp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/additor/field/FieldAdditorCurrentTimestamp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/validator/field/IsIntFieldValidator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/validator/field/IsIntFieldValidator.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/writer/CsvWriter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/writer/CsvWriter.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/writer/JsonWriter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/writer/JsonWriter.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684157674921</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Better package organization and CSVWriter">
+      <created>1684159252744</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684159252744</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -220,7 +218,8 @@
     <MESSAGE value="IsIntFieldValidator" />
     <MESSAGE value="FieldValidation Types" />
     <MESSAGE value="FieldAdditorConcat" />
-    <option name="LAST_COMMIT_MESSAGE" value="FieldAdditorConcat" />
+    <MESSAGE value="Better package organization and CSVWriter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better package organization and CSVWriter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

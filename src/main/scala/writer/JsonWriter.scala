@@ -14,7 +14,6 @@ class JsonWriter extends Writer {
      * @param fileName     Nombre del archivo donde guardar el DataFrame.
      * @param saveModeType Modo de guardado para el DataFrame.
      */
-
     if (!SaveModeType.values.exists(_ == saveModeType)) throw new Exception("Modo de almacenado no soportado")
     if(!pathExists(path)) throw new Exception(s"Ruta de guardado: ${path} no existe")
     if(!isDirectory(path)) throw new Exception(s"Ruta de guardado: ${path} no es un directorio")

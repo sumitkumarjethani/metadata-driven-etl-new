@@ -10,6 +10,15 @@ import utils.Utils
 class Extractor (spark: SparkSession) {
 
   def load(sources: List[Source]): MutableMap[String, MutableMap[String, DataFrame]] = {
+    /**
+     * Carga los datos de las fuentes proporcionadas en una estructura de mapa mutable.
+     *
+     * @param sources Lista de fuentes de datos.
+     * @return Mapa mutable que contiene los datos cargados, donde la clave externa es el nombre de la fuente
+     *         y la clave interna es la ruta del archivo o directorio, y el valor es el DataFrame resultante.
+     * @throws Exception si no se han definido fuentes para cargar los datos.
+     */
+
     if (sources.length == 0) throw new Exception("No sources definidos para iniciar la extracción")
 
     val sourcesMap = MutableMap[String, MutableMap[String, DataFrame]]()
