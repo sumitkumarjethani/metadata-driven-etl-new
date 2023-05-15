@@ -2,7 +2,7 @@ package transformer.field.validator
 
 object FieldValidationType extends Enumeration {
   type FieldValidationType = Value
-  val NOT_NULL, IS_INT, IS_STRING = Value
+  val NOT_NULL, IS_INT = Value
 
   def fromString(s: String): FieldValidationType = s match {
     /**
