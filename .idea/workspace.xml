@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="checking df has data">
+    <list default="true" id="eea4c5e2-9779-40d8-92c6-0202fb851c23" name="Changes" comment="making a generic reader">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/MetadataDrivenEtl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/MetadataDrivenEtl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Extractor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Extractor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/reader/JsonReader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/reader/JsonReader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/reader/Reader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/reader/Reader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/etl/Validator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/etl/Validator.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidationType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/transformer/field/validator/FieldValidationType.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684087394659</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="making a generic reader">
+      <created>1684089887004</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684089887004</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -176,7 +182,8 @@
     <MESSAGE value="adding docs and optimizing code for loader" />
     <MESSAGE value="loader and writer working" />
     <MESSAGE value="checking df has data" />
-    <option name="LAST_COMMIT_MESSAGE" value="checking df has data" />
+    <MESSAGE value="making a generic reader" />
+    <option name="LAST_COMMIT_MESSAGE" value="making a generic reader" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -27,6 +27,19 @@
               },
               {
                 "field": "age",
+                "validations": ["NOT_NULL", "IS_INT"]
+              }
+            ]
+          }
+        },
+	   {
+          "name": "validation",
+          "type": "VALIDATE_FIELDS",
+          "params": {
+            "input" : "person_copy_inputs",
+            "validations": [
+              {
+                "field": "office",
                 "validations": ["NOT_NULL"]
               }
             ]

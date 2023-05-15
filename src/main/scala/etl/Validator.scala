@@ -2,8 +2,9 @@ package etl
 
 import metadata.components.Transformation
 import metadata.components.types.TransformationType
-import org.apache.spark.sql.{DataFrame}
-import transformer.field.validator.{FieldValidation, FieldValidationType, NotNullFieldValidator}
+import org.apache.spark.sql.DataFrame
+import transformer.field.validator.{FieldValidation, FieldValidationType, IsIntFieldValidator, NotNullFieldValidator}
+
 import scala.collection.mutable.{Map => MutableMap}
 import scala.collection.immutable.{Map => ImmutableMap}
 
@@ -66,6 +67,9 @@ class Validator () {
           fieldValidationType match {
             case FieldValidationType.NOT_NULL => {
               updatedDf = new NotNullFieldValidator().validate(fieldName, updatedDf)
+            }
+            case FieldValidationType.IS_INT => {
+              updatedDf = new IsIntFieldValidator().validate(fieldName, updatedDf)
             }
             case _ => throw new Exception(s"Validación: ${fieldValidationType} no soportada")
           }

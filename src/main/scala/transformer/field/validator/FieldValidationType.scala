@@ -2,7 +2,7 @@ package transformer.field.validator
 
 object FieldValidationType extends Enumeration {
   type FieldValidationType = Value
-  val NOT_NULL = Value
+  val NOT_NULL, IS_INT, IS_STRING = Value
 
   def fromString(s: String): FieldValidationType = s match {
     /**
@@ -12,6 +12,7 @@ object FieldValidationType extends Enumeration {
      * @throws IllegalArgumentException Si el tipo de validación de campo no es compatible.
      */
     case "NOT_NULL" => NOT_NULL
+    case "IS_INT" => IS_INT
     case _ => throw new IllegalArgumentException(s"Tipo de validación ${s} no soportado")
   }
 }
