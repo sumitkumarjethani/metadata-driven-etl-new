@@ -3,7 +3,7 @@ package etl
 import metadata.components.Transformation
 import metadata.components.types.TransformationType
 import org.apache.spark.sql.DataFrame
-import transformer.field.validator.{FieldValidation, FieldValidationType, IsIntFieldValidator, NotNullFieldValidator}
+import transformer.validator.field.{FieldValidation, FieldValidationType, IsIntFieldValidator, NotNullFieldValidator}
 
 import scala.collection.mutable.{Map => MutableMap}
 import scala.collection.immutable.{Map => ImmutableMap}

@@ -1,6 +1,7 @@
-package transformer.field.additor
+package transformer.additor.field
+
 import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.functions.{concat_ws, col}
+import org.apache.spark.sql.functions.{col, concat_ws}
 
 class FieldAdditorConcat(newFieldName: String, separator: String,
                          inputFieldNames: List[String]) extends FieldAdditor {

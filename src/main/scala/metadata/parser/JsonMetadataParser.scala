@@ -53,7 +53,7 @@ class JsonMetadataParser extends MetadataParser {
     }
 
     val paths = Try((json \ "paths").as[List[String]]).getOrElse(Nil)
-    val saveMode = Try(SaveModeType.withName((json \ "saveMode").as[String])).getOrElse(SaveModeType.OVERWRITE)
+    val saveMode = Try(SaveModeType.withName((json \ "saveMode").as[String])).getOrElse(SaveModeType.APPEND)
     val status = Try(SaveStatusType.withName((json \ "status").as[String])).getOrElse(SaveStatusType.OK)
     val format = Try(FormatType.withName((json \ "format").as[String])).getOrElse(FormatType.JSON)
 

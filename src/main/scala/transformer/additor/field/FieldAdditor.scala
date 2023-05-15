@@ -1,4 +1,4 @@
-package transformer.field.additor
+package transformer.additor.field
 
 import org.apache.spark.sql.DataFrame
 

@@ -1,4 +1,4 @@
-package transformer.field.additor
+package transformer.additor.field
 
 object FieldAdditionType extends Enumeration {
   type FieldAdditionType = Value

@@ -1,7 +1,7 @@
-package transformer.field.validator
+package transformer.validator.field
 
 import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.functions.{array, array_union, col, lit, when}
+import org.apache.spark.sql.functions._
 
 class IsIntFieldValidator extends FieldValidator {
   override def validate(fieldName: String, df: DataFrame): DataFrame = {

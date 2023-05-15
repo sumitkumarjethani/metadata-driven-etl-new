@@ -4,7 +4,7 @@ import metadata.components.types.{FormatType, SaveStatusType}
 import metadata.components.Sink
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._
-import writer.JsonWriter
+import writer.{CsvWriter, JsonWriter}
 import utils.Utils
 
 import scala.collection.mutable.{Map => MutableMap}
@@ -42,23 +42,23 @@ class Loader {
      * @param sink   El Sink donde se guardará el DataFrame.
      * @param dfsMap El MutableMap que contiene los DataFrames a guardar.
      */
-    sink.format match {
-      case FormatType.JSON => {
-        val jsonWriter = new JsonWriter()
-        for((path, df) <- dfsMap) {
-          var okDf = df
-          if (okDf.columns.contains("arraycoderrorbyfield"))
-            okDf = df.filter(size(col("arraycoderrorbyfield")) === 0).drop("arraycoderrorbyfield")
-          for(savePath <- sink.paths) {
-            jsonWriter.write(
-              okDf,
-              savePath, utils.Utils.getFileNameWithoutExtensionFromPath(path),
-              sink.saveMode
-            )
-          }
-        }
-      }
+    val writer = sink.format match {
+      case FormatType.JSON => new JsonWriter()
+      case FormatType.CSV => new CsvWriter()
       case _ => throw new Exception(s"Formato de almacenado: ${sink.format} no soportado")
+    }
+
+    for((path, df) <- dfsMap) {
+      var okDf = df
+      if (okDf.columns.contains("arraycoderrorbyfield"))
+        okDf = df.filter(size(col("arraycoderrorbyfield")) === 0).drop("arraycoderrorbyfield")
+      for(savePath <- sink.paths) {
+        writer.write(
+          okDf,
+          savePath, utils.Utils.getFileNameWithoutExtensionFromPath(path),
+          sink.saveMode
+        )
+      }
     }
   }
 
@@ -69,22 +69,22 @@ class Loader {
      * @param sink   El Sink donde se guardará el DataFrame.
      * @param dfsMap El MutableMap que contiene los DataFrames a guardar.
      */
-    sink.format match {
-      case FormatType.JSON => {
-        val jsonWriter = new JsonWriter()
-        for ((path, df) <- dfsMap) {
-          var koDf = df
-          if (koDf.columns.contains("arraycoderrorbyfield")) koDf = df.filter(size(col("arraycoderrorbyfield")) > 0)
-          for (savePath <- sink.paths) {
-            jsonWriter.write(
-              koDf,
-              savePath, Utils.getFileNameWithoutExtensionFromPath(path),
-              sink.saveMode
-            )
-          }
-        }
-      }
+    val writer = sink.format match {
+      case FormatType.JSON => new JsonWriter()
+      case FormatType.CSV => new CsvWriter()
       case _ => throw new Exception(s"Formato de almacenado: ${sink.format} no soportado")
+    }
+
+    for ((path, df) <- dfsMap) {
+      var koDf = df
+      if (koDf.columns.contains("arraycoderrorbyfield")) koDf = df.filter(size(col("arraycoderrorbyfield")) > 0)
+      for (savePath <- sink.paths) {
+        writer.write(
+          koDf,
+          savePath, Utils.getFileNameWithoutExtensionFromPath(path),
+          sink.saveMode
+        )
+      }
     }
   }
 }

@@ -93,7 +93,7 @@
           "paths": [
             "C:/Users/sumit/OneDrive/Escritorio/data/output/events/person_copy/ok"
           ],
-          "format": "JSON",
+          "format": "CSV",
           "saveMode": "OVERWRITE"
         }
       ]

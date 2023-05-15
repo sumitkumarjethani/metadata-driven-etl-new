@@ -2,7 +2,7 @@ package etl
 import metadata.components.Transformation
 import metadata.components.types.TransformationType
 import org.apache.spark.sql.DataFrame
-import transformer.field.additor.{FieldAdditorConcat, FieldAdditorCurrentTimestamp, FieldAdditionType}
+import transformer.additor.field.{FieldAdditionType, FieldAdditorConcat, FieldAdditorCurrentTimestamp}
 import scala.collection.mutable.{Map => MutableMap}
 import scala.collection.immutable.{Map => ImmutableMap}
 

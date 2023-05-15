@@ -1,4 +1,4 @@
-package transformer.field.validator
+package transformer.validator.field
 
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._

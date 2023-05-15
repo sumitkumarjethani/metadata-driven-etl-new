@@ -41,6 +41,7 @@ class Extractor (spark: SparkSession) {
               directoryMap
             }
           }
+        case _ => throw new Exception(s"Formato de lectura: ${source.format} no soportado")
       }
       sourcesMap += (source.name -> sourceMap)
     }

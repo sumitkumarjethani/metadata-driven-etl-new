@@ -1,7 +1,7 @@
-package transformer.field.additor
+package transformer.additor.field
 
 import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.functions.{current_timestamp}
+import org.apache.spark.sql.functions.current_timestamp
 
 class FieldAdditorCurrentTimestamp(fieldName: String) extends FieldAdditor {
   /**

@@ -1,4 +1,4 @@
-package transformer.field.validator
+package transformer.validator.field
 
 object FieldValidationType extends Enumeration {
   type FieldValidationType = Value
